@@ -11,4 +11,6 @@
     <string name="ratingdetails">Rating Details</string>
     <string name="datedetails">Date Details</string>
     <string name="durationdetails">Duration Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

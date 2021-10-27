@@ -1,14 +1,14 @@
 package com.example.moviedb.view.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
@@ -38,10 +38,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
         viewModel.getResultGetMovieById().observe(MovieDetailsActivity.this, showMoviesResults);
 
         back = findViewById(R.id.icon_back);
-        image_text = findViewById(R.id.img_movie_details);
+        image_text = findViewById(R.id.poster_fragment_details);
         id_text = findViewById(R.id.id_details);
         id_text.setText(movie_id);
-        title_text = findViewById(R.id.title_details);
+        title_text = findViewById(R.id.title_fragment_details);
         title_text.setText(title);
         genre_text = findViewById(R.id.genre_details);
         date_text = findViewById(R.id.date_details);

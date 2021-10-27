@@ -11,6 +11,9 @@
     <string name="ratingdetails">Rating Details</string>
     <string name="datedetails">Date Details</string>
     <string name="durationdetails">Duration Details</string>
+    <string name="avgvotedetails">Average Vote Details</string>
+    <string name="resource">Cast Credits</string>
+    <string name="tagline">Tagline</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

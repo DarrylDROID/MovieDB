@@ -12,6 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.moviedb.R;
 import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.Credits;
@@ -46,7 +48,7 @@ public class CreditsCastAdapter extends RecyclerView.Adapter<CreditsCastAdapter.
         holder.originalname_cast.setText(results.getOriginal_name());
         holder.character_cast.setText(results.getCharacter());
         Glide.with(context)
-                .load(Const.IMG_URL + results.getProfile_path())
+                .load(Const.IMG_URL + results.getProfile_path()).apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(holder.img_profile);
     }
 

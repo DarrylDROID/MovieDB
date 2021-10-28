@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/gradient.xml" value="0.2484375" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24.xml" value="0.2484375" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2484375" />
@@ -17,7 +18,7 @@
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_now_playing.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/activity_up_coming.xml" value="0.536" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_credits_cast.xml" value="0.4" />
-        <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_now_playing.xml" value="0.536" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_now_playing.xml" value="0.4" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/card_up_coming.xml" value="0.4" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/credits_cast.xml" value="0.536" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/MovieDB/app/src/main/res/layout/fragment_movie_details.xml" value="0.2" />

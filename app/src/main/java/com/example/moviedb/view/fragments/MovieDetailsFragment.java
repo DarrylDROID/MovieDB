@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -20,7 +21,6 @@ import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.Credits;
 import com.example.moviedb.model.Movies;
 import com.example.moviedb.viewmodel.MovieViewModel;
-import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -151,9 +151,9 @@ public class MovieDetailsFragment extends Fragment {
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Snackbar snackbar = Snackbar.make(view, productionname, Snackbar.LENGTH_SHORT);
-                        snackbar.setAnchorView(R.id.bottom_nav_main_menu);
-                        snackbar.show();
+                        Toast toast = Toast.makeText(getContext(), productionname, Toast.LENGTH_SHORT);
+                        toast.setText(productionname);
+                        toast.show();
                     }
                 });
             }

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -68,7 +67,6 @@ public class UpComingFragment extends Fragment {
 
     private RecyclerView rv_up_coming;
     private MovieViewModel view_model;
-    private NestedScrollView nested_scrollview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

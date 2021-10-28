@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -17,6 +18,9 @@ import com.example.moviedb.adapter.UpComingAdapter;
 import com.example.moviedb.helper.ItemClickSupport;
 import com.example.moviedb.model.UpComing;
 import com.example.moviedb.viewmodel.MovieViewModel;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,8 +91,13 @@ public class UpComingFragment extends Fragment {
         public void onChanged(UpComing upComing) {
             rv_up_coming.setLayoutManager(new LinearLayoutManager(getActivity()));
             UpComingAdapter adapter = new UpComingAdapter(getActivity());
+            AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
+            alphaInAnimationAdapter.setFirstOnly(false);
+            alphaInAnimationAdapter.setDuration(500);
+            alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
             adapter.setListUpComing(upComing.getResults());
-            rv_up_coming.setAdapter(adapter);
+            rv_up_coming.setAdapter(new AlphaInAnimationAdapter(alphaInAnimationAdapter));
+            rv_up_coming.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
 
             ItemClickSupport.addTo(rv_up_coming).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                 @Override

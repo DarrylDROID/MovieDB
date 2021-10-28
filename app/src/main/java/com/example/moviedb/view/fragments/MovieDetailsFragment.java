@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.Credits;
 import com.example.moviedb.model.Movies;
 import com.example.moviedb.viewmodel.MovieViewModel;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -175,8 +179,13 @@ public class MovieDetailsFragment extends Fragment {
         @Override
         public void onChanged(Credits credits) {
             CreditsCastAdapter adapter = new CreditsCastAdapter(getActivity());
+            AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
+            alphaInAnimationAdapter.setFirstOnly(false);
+            alphaInAnimationAdapter.setDuration(1000);
+            alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
             adapter.setCreditsList(credits.getCast());
-            rv_credits.setAdapter(adapter);
+            rv_credits.setAdapter(new AlphaInAnimationAdapter(alphaInAnimationAdapter));
+            rv_credits.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
         }
     };
 }

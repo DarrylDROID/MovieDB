@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -17,6 +18,9 @@ import com.example.moviedb.adapter.NowPlayingAdapter;
 import com.example.moviedb.helper.ItemClickSupport;
 import com.example.moviedb.model.NowPlaying;
 import com.example.moviedb.viewmodel.MovieViewModel;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,7 +77,6 @@ public class NowPlayingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_now_playing, container, false);
-
         rv_now_playing = view.findViewById(R.id.rv_now_playing_fragment);
         view_model = new ViewModelProvider(getActivity()).get(MovieViewModel.class);
         view_model.getNowPlaying();
@@ -87,8 +90,13 @@ public class NowPlayingFragment extends Fragment {
         public void onChanged(NowPlaying nowPlaying) {
             rv_now_playing.setLayoutManager(new LinearLayoutManager(getActivity()));
             NowPlayingAdapter adapter = new NowPlayingAdapter(getActivity());
+            AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
+            alphaInAnimationAdapter.setFirstOnly(false);
+            alphaInAnimationAdapter.setDuration(500);
+            alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
             adapter.setListNowPlaying(nowPlaying.getResults());
-            rv_now_playing.setAdapter(adapter);
+            rv_now_playing.setAdapter(new AlphaInAnimationAdapter(alphaInAnimationAdapter));
+            rv_now_playing.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
 
             ItemClickSupport.addTo(rv_now_playing).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                 @Override

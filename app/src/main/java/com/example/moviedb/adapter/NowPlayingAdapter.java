@@ -49,21 +49,6 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
          Glide.with(context)
                  .load(Const.IMG_URL + results.getPoster_path())
                  .into(holder.img_poster);
-//         holder.cv.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View view) {
-////                 Intent intent = new Intent(context, MovieDetailsActivity.class);
-////                 intent.putExtra("movie_id", ""+results.getId());
-////                 intent.putExtra("title", results.getTitle());
-////                 intent.putExtra("description", results.getOverview());
-////                 intent.putExtra("image_text", results.getPoster_path());
-////                 context.startActivity(intent);
-//
-//                 Bundle bundle = new Bundle();
-//                 bundle.putString("movieId", ""+results.getId());
-//                 Navigation.findNavController(view).navigate(R.id.action_nowPlayingFragment_to_movieDetailsFragment, bundle);
-//             }
-//         });
      }
 
      @Override

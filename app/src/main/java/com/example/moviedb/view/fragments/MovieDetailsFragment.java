@@ -1,5 +1,6 @@
 package com.example.moviedb.view.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,11 +69,10 @@ public class MovieDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            dialog = ProgressDialog.show(getActivity(), "", "Loading, Please Wait...", true);
+            dialog.show();
         }
-    }
+
 
     private TextView title_text, genre_text, rating_text, description_text, date_text, tagline_text, vote_text, popularity_text;
     private String movie_id = "";
@@ -80,6 +80,7 @@ public class MovieDetailsFragment extends Fragment {
     private LinearLayout logo_details;
     private MovieViewModel viewModel;
     private RecyclerView rv_credits;
+    private ProgressDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -175,6 +176,7 @@ public class MovieDetailsFragment extends Fragment {
         }
     };
 
+
     private Observer<Credits> showResultCredits = new Observer<Credits>() {
         @Override
         public void onChanged(Credits credits) {
@@ -186,6 +188,7 @@ public class MovieDetailsFragment extends Fragment {
             adapter.setCreditsList(credits.getCast());
             rv_credits.setAdapter(new AlphaInAnimationAdapter(alphaInAnimationAdapter));
             rv_credits.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
+            dialog.dismiss();
         }
     };
 }

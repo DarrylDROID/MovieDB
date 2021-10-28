@@ -25,7 +25,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         bottomNavigationView = findViewById(R.id.bottom_nav_main_menu);
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_fragment_main_menu);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.nowPlayingFragment, R.id.upComingFragment).build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.nowPlayingFragment, R.id.upComingFragment, R.id.popularFragment).build();
         NavigationUI.setupActionBarWithNavController(MainMenuActivity.this, navHostFragment.getNavController(), appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
     }

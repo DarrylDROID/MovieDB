@@ -3,6 +3,7 @@ package com.example.moviedb.retrofit;
 import com.example.moviedb.model.Credits;
 import com.example.moviedb.model.Movies;
 import com.example.moviedb.model.NowPlaying;
+import com.example.moviedb.model.Popular;
 import com.example.moviedb.model.UpComing;
 
 import retrofit2.Call;
@@ -31,6 +32,11 @@ public interface ApiEndPoint {
     @GET("movie/{movie_id}/credits")
     Call<Credits> getCredits(
             @Path("movie_id") String movieId,
+            @Query("api_key") String apiKey
+    );
+
+    @GET("movie/popular")
+    Call<Popular> getPopular(
             @Query("api_key") String apiKey
     );
 }
